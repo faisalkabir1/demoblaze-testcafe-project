@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { Selector } from 'testcafe'
 
 fixture`Getting Started`
@@ -27,4 +25,4 @@ test('Log in test', async t => {
     await t.debug();
 
 })
->>>>>>> Stashed changes
+
