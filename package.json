@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node": "^19.6.0",
+    "testcafe": "^2.3.0"
+  }
+}
