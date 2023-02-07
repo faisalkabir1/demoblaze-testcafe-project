@@ -25,7 +25,6 @@ test('Log in test', async t => {
     await t.debug();
 
 })
-
 test('Contact Test', async t => {
     await t
         .setNativeDialogHandler(() => true)
