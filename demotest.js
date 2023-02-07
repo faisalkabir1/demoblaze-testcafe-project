@@ -25,5 +25,15 @@ test('Log in test', async t => {
     await t.debug();
 
 })
-
-
+test('Contact Test', async t => {
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("a").withText("Contact"));
+    await t.typeText("#recipient-email", "faisalk007@gmail.com");
+    await t.typeText("#recipient-name", "faisalk");
+    await t.typeText("#message-text", "Hello demo....!")
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("button").withText("Send message"));
+    await t.debug();
+})
