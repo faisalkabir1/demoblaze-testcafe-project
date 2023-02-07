@@ -8,7 +8,6 @@ test('Sign up test', async t => {
     await t.click("#signin2");
     await t.typeText("#sign-username", "faisalk007");
     await t.typeText("#sign-password", "faisalk007");
-    //await t.click(Selector("button").withText("Sign up"));
     await t
         .setNativeDialogHandler(() => true)
         .click(Selector("button").withText("Sign up"));
@@ -36,4 +35,30 @@ test('Contact Test', async t => {
         .setNativeDialogHandler(() => true)
         .click(Selector("button").withText("Send message"));
     await t.debug();
+})
+test.only('Add to cart and order', async t => {
+    await t
+        // .setNativeDialogHandler(() => true)
+        .click(Selector("a").withText("Samsung galaxy s6"));
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("a").withText("Add to cart"));
+    await t
+        // .setNativeDialogHandler(() => true)
+        .click(Selector("a").withText("Cart"));
+    await t
+        .click(Selector("button").withText("Place Order"));
+    await t.typeText("#name", "fkkabir");
+    await t.typeText("#country", "Bangladesh");
+    await t.typeText("#city", "Dhaka");
+    await t.typeText("#month", "12");
+    await t.typeText("#card", "1234567891011");
+    await t.typeText("#year", "2025");
+    await t
+        //.setNativeDialogHandler(() => true)
+        .click(Selector("button").withText("Purchase"));
+    await t
+        .click(Selector("button").withText("OK"));
+    await t.debug();
+
 })
