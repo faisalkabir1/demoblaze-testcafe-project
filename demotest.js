@@ -1,15 +1,17 @@
 import { Selector } from 'testcafe'
+import Element_selector from './element/Element_selector';
+import { faker } from '@faker-js/faker';
 
+const element_selector = new Element_selector();
 fixture`Getting Started`
     .page`https://www.demoblaze.com/`
 
 
-test('Sign up test', async t => {
-    await t.click("#signin2");
-    await t.typeText("#sign-username", "faisalk007");
-    await t.typeText("#sign-password", "faisalk007");
+test.only('Sign up test', async t => {
+    await element_selector.signUPmethod();
+    await t.typeText("#sign-username", faker.name.fullName());
+    await t.typeText("#sign-password", faker.internet.password());
     await t
-        .setNativeDialogHandler(() => true)
         .click(Selector("button").withText("Sign up"));
     await t.debug();
 }
@@ -36,7 +38,7 @@ test('Contact Test', async t => {
         .click(Selector("button").withText("Send message"));
     await t.debug();
 })
-test.only('Add to cart and order', async t => {
+test('Add to cart and order', async t => {
     await t
         // .setNativeDialogHandler(() => true)
         .click(Selector("a").withText("Samsung galaxy s6"));
