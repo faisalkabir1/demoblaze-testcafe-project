@@ -1,6 +1,5 @@
 import { Selector } from 'testcafe'
 import Element_selector from './element/Element_selector';
-import { faker } from '@faker-js/faker';
 
 const element_selector = new Element_selector();
 fixture`Getting Started`
@@ -24,7 +23,7 @@ test('Contact Test', async t => {
     await t
         .setNativeDialogHandler(() => true)
         .click(Selector("button").withText("Send message"));
-    await t.debug();
+
 })
 test('Add to cart and order', async t => {
     await t
