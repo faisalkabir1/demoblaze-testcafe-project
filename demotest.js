@@ -7,24 +7,12 @@ fixture`Getting Started`
     .page`https://www.demoblaze.com/`
 
 
-test.only('Sign up test', async t => {
+test('Sign up test', async t => {
     await element_selector.signUPmethod();
-    await t.typeText("#sign-username", faker.name.fullName());
-    await t.typeText("#sign-password", faker.internet.password());
-    await t
-        .click(Selector("button").withText("Sign up"));
-    await t.debug();
 }
 )
 test('Log in test', async t => {
-    await t.click("#login2");
-    await t.typeText("#loginusername", "faisalk007");
-    await t.typeText("#loginpassword", "faisalk007");
-    await t
-        .setNativeDialogHandler(() => true)
-        .click(Selector("button").withText("Log in"));
-    await t.debug();
-
+    await element_selector.LoginMethod();
 })
 test('Contact Test', async t => {
     await t
