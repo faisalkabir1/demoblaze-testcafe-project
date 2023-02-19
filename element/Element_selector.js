@@ -18,7 +18,6 @@ class Element_selector {
         await t
             .setNativeDialogHandler(() => true)
             .click(this.signUPbtn);
-        await t.debug();
 
     }
     async LoginMethod() {
@@ -28,7 +27,6 @@ class Element_selector {
         await t
             .setNativeDialogHandler(() => true)
             .click(this.loginBtn);
-        await t.debug();
     }
 }
 export default Element_selector;
