@@ -1,17 +1,18 @@
 import { Selector } from 'testcafe'
+import Login from './element/login';
 import Signup from './element/signup';
-
-const element_selector = new Element_selector();
+const login = new Login();
+const signup = new Signup();
 fixture`Getting Started`
     .page`https://www.demoblaze.com/`
 
 
 test('Sign up test', async t => {
-    await element_selector.signUPmethod();
+    await signup.signUPmethod();
 }
 )
 test('Log in test', async t => {
-    await element_selector.LoginMethod();
+    await login.LoginMethod();
 })
 test('Contact Test', async t => {
     await t
