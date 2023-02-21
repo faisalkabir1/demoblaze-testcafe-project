@@ -1,5 +1,5 @@
 import { Selector } from 'testcafe'
-import Element_selector from './element/Element_selector';
+import Signup from './element/signup';
 
 const element_selector = new Element_selector();
 fixture`Getting Started`
