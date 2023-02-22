@@ -18,7 +18,7 @@ test('Log in test', async t => {
     await t.click("#logout2");
 })
 
-test.only('Add to cart and order', async t => {
+test('Add to cart and order', async t => {
     await login.LoginMethod();
     await addtocart.addtoCartMethod();
     await addtocart.OrderMethod();
