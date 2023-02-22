@@ -15,13 +15,18 @@ class AddtoCart {
     }
     async OrderMethod() {
         await t.click(this.orderbtn)
-        await t.typeText("#name", "fkkabir");
-        await t.typeText("#country", "Bangladesh");
-        await t.typeText("#city", "Dhaka");
-        await t.typeText("#month", "12");
-        await t.typeText("#card", "1234567891011");
-        await t.typeText("#year", "2025")
-
+        await t.typeText("#name", faker.name.fullName());
+        await t.typeText("#country", faker.address.country());
+        await t.typeText("#city", faker.address.cityName());
+        await t.typeText("#month", faker.datatype.number({ min: 1, max: 12 }));
+        await t.typeText("#card", faker.finance.creditCardNumber());
+        await t.typeText("#year", faker.date.future().getFullYear());
+        await t.click(this.orderbtn);
+        await t
+            //.setNativeDialogHandler(() => true)
+            .click(Selector("button").withText("Purchase"));
+        await t
+            .click(Selector("button").withText("OK"));
     }
 }
 export default AddtoCart;
