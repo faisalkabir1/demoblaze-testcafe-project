@@ -13,19 +13,18 @@ class AddtoCart {
         await t.click(this.addtocartbtn)
         await t.click(this.cartbtn)
     }
-    randomMonth = faker.datatype.number({ min: 1, max: 12 });
+
     async OrderMethod() {
         await t.click(this.orderbtn)
         await t.typeText("#name", faker.name.fullName());
         await t.typeText("#country", faker.address.country());
         await t.typeText("#city", faker.address.cityName());
-        await t.typeText("#month", this.randomMonth);
+        await t.typeText("#month", faker.date.month());
         await t.typeText("#card", faker.finance.creditCardNumber());
-        await t.typeText("#year", faker.date.future().getFullYear());
-        await t.click(this.orderbtn);
-        await t
+        await t.typeText("#year", faker.date.future().getFullYear().toString());
+        await t.
             //.setNativeDialogHandler(() => true)
-            .click(Selector("button").withText("Purchase"));
+                .click(Selector("button").withText("Purchase"));
         await t
             .click(Selector("button").withText("OK"));
     }
