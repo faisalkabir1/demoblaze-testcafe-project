@@ -21,21 +21,7 @@ test('Log in test', async t => {
 test.only('Add to cart and order', async t => {
     await login.LoginMethod();
     await addtocart.addtoCartMethod();
-
-    await t
-        .click(Selector("button").withText("Place Order"));
-    await t.typeText("#name", "fkkabir");
-    await t.typeText("#country", "Bangladesh");
-    await t.typeText("#city", "Dhaka");
-    await t.typeText("#month", "12");
-    await t.typeText("#card", "1234567891011");
-    await t.typeText("#year", "2025");
-    await t
-        //.setNativeDialogHandler(() => true)
-        .click(Selector("button").withText("Purchase"));
-    await t
-        .click(Selector("button").withText("OK"));
-    await t.debug();
+    await addtocart.OrderMethod();
 
 })
 test('Contact Test', async t => {
