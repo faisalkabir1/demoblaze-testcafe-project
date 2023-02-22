@@ -1,9 +1,10 @@
 import { Selector } from 'testcafe'
 import Login from './element/login';
 import Signup from './element/signup';
-import AddtoCart from './element/add_to_cart'
+import AddtoCart from './element/add_to_cart';
 const login = new Login();
 const signup = new Signup();
+const addtocart = new AddtoCart();
 fixture`Getting Started`
     .page`https://www.demoblaze.com/`
 
@@ -17,9 +18,9 @@ test('Log in test', async t => {
     await t.click("#logout2");
 })
 
-test('Add to cart and order', async t => {
-
-    await AddtoCart.addtoCartMethod();
+test.only('Add to cart and order', async t => {
+    await login.LoginMethod();
+    await addtocart.addtoCartMethod();
 
     await t
         .click(Selector("button").withText("Place Order"));
