@@ -22,9 +22,9 @@ class AddtoCart {
         await t.typeText("#month", faker.date.month());
         await t.typeText("#card", faker.finance.creditCardNumber());
         await t.typeText("#year", faker.date.future().getFullYear().toString());
-        await t.
+        await t
             //.setNativeDialogHandler(() => true)
-                .click(Selector("button").withText("Purchase"));
+            .click(Selector("button").withText("Purchase"));
         await t
             .click(Selector("button").withText("OK"));
     }
