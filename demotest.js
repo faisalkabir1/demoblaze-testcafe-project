@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe'
 import Login from './element/login';
 import Signup from './element/signup';
+import AddtoCart from './element/add_to_cart'
 const login = new Login();
 const signup = new Signup();
 fixture`Getting Started`
@@ -13,29 +14,13 @@ test('Sign up test', async t => {
 )
 test('Log in test', async t => {
     await login.LoginMethod();
+    await t.click("#logout2");
 })
-test('Contact Test', async t => {
-    await t
-        .setNativeDialogHandler(() => true)
-        .click(Selector("a").withText("Contact"));
-    await t.typeText("#recipient-email", "faisalk007@gmail.com");
-    await t.typeText("#recipient-name", "faisalk");
-    await t.typeText("#message-text", "Hello demo....!")
-    await t
-        .setNativeDialogHandler(() => true)
-        .click(Selector("button").withText("Send message"));
 
-})
 test('Add to cart and order', async t => {
-    await t
-        // .setNativeDialogHandler(() => true)
-        .click(Selector("a").withText("Samsung galaxy s6"));
-    await t
-        .setNativeDialogHandler(() => true)
-        .click(Selector("a").withText("Add to cart"));
-    await t
-        // .setNativeDialogHandler(() => true)
-        .click(Selector("a").withText("Cart"));
+
+    await AddtoCart.addtoCartMethod();
+
     await t
         .click(Selector("button").withText("Place Order"));
     await t.typeText("#name", "fkkabir");
@@ -50,5 +35,17 @@ test('Add to cart and order', async t => {
     await t
         .click(Selector("button").withText("OK"));
     await t.debug();
+
+})
+test('Contact Test', async t => {
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("a").withText("Contact"));
+    await t.typeText("#recipient-email", "faisalk007@gmail.com");
+    await t.typeText("#recipient-name", "faisalk");
+    await t.typeText("#message-text", "Hello demo....!")
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("button").withText("Send message"));
 
 })
