@@ -4,12 +4,11 @@ class Contact {
     constructor() {
         this.emailadd = Selector("#recipient-email");
         this.nameadd = Selector("#recipient-name");
-        this.message = ("#message-text")
-        await t
+        this.message = ("#message-text");
     }
     async ContactInfo() {
-        await t.typeText
-        await t.typeText
-        await t.typeText
+        await t.typeText()
+        await t.typeText()
+        await t.typeText()
     }
 }
