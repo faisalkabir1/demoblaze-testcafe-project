@@ -26,7 +26,7 @@ test('Add to cart and order', async t => {
     await addtocart.OrderMethod();
 
 })
-test.only('Contact Test', async t => {
+test('Contact Test', async t => {
     await t
         .setNativeDialogHandler(() => true)
         .click(Selector("a").withText("Contact"));
