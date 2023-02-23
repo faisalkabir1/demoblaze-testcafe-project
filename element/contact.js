@@ -7,7 +7,7 @@ class Contact {
         this.message = ("#message-text");
     }
     email = faker.internet.email();
-    name = faker.name();
+    name = faker.name.fullName();
     Message = faker.lorem.words();
     async ContactInfo() {
         await t.typeText(this.emailadd, this.email)
@@ -15,3 +15,4 @@ class Contact {
         await t.typeText(this.message, this.Message)
     }
 }
+export default Contact;
