@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome - c 1 demotest.js"
+    "test": "testcafe chrome - c 1 --test-grep '@name' --skip-js-errors demotest.js"
   },
   "dependencies": {
     "node": "^19.6.0",

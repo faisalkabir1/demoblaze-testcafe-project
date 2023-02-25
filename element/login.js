@@ -6,10 +6,11 @@ class Login {
         this.typepassw = Selector("#loginpassword");
         this.loginBtn = Selector("button").withText("Log in");
     }
-    async LoginMethod() {
+    async LoginMethod(username, pass) {
         await t.click(this.login);
-        await t.typeText(this.typename, "faisalk007");
-        await t.typeText(this.typepassw, "faisalk007");
+        await t.typeText(this.typename, username);
+        await t.typeText(this.typepassw, pass);
+        console.log("username " + username + "pass " + pass);
         await t
             .setNativeDialogHandler(() => true)
             .click(this.loginBtn);

@@ -1,5 +1,5 @@
 import { Selector, t } from 'testcafe';
-import { faker } from '@faker-js/faker';
+
 class Signup {
     constructor() {
         this.signUP = Selector("#signin2");
@@ -9,13 +9,13 @@ class Signup {
 
 
     }
-    username = faker.name.fullName();
-    pass = faker.internet.password();
-    async signUPmethod() {
+
+    async signUPmethod(username, pass) {
 
         await t.click(this.signUP);
-        await t.typeText(this.type, this.username);
-        await t.typeText(this.typepass, this.pass);
+        await t.typeText(this.type, username);
+        await t.typeText(this.typepass, pass);
+        console.log("username " + username + "pass " + pass);
         await t
             .setNativeDialogHandler(() => true)
             .click(this.signUPbtn);

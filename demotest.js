@@ -1,4 +1,5 @@
 import { Selector } from 'testcafe'
+import { faker } from '@faker-js/faker';
 import Login from './element/login';
 import Signup from './element/signup';
 import AddtoCart from './element/add_to_cart';
@@ -10,18 +11,19 @@ const contact = new Contact();
 fixture`Getting Started`
     .page`https://www.demoblaze.com/`
 
-
-test('Sign up test', async t => {
-    await signup.signUPmethod();
+const username = faker.name.fullName();
+const pass = faker.internet.password();
+test("Sign up test '@name'", async t => {
+    await signup.signUPmethod(username, pass);
 }
 )
-test('Log in test', async t => {
-    await login.LoginMethod();
+test("Log in test '@name'", async t => {
+    await login.LoginMethod(username, pass);
     await t.click("#logout2");
 })
 
 test('Add to cart and order', async t => {
-    await login.LoginMethod();
+    await login.LoginMethod(username, pass);
     await addtocart.addtoCartMethod();
     await addtocart.OrderMethod();
 
