@@ -15,7 +15,7 @@ class Signup {
         await t.click(this.signUP);
         await t.typeText(this.type, username);
         await t.typeText(this.typepass, pass);
-        console.log("username " + username + "pass " + pass);
+        //console.log("username " + username + "pass " + pass);
         await t
             .setNativeDialogHandler(() => true)
             .click(this.signUPbtn);

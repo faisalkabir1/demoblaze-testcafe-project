@@ -10,7 +10,7 @@ class Login {
         await t.click(this.login);
         await t.typeText(this.typename, username);
         await t.typeText(this.typepassw, pass);
-        console.log("username " + username + "pass " + pass);
+        //console.log("username " + username + "pass " + pass);
         await t
             .setNativeDialogHandler(() => true)
             .click(this.loginBtn);
